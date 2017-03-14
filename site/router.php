@@ -55,7 +55,12 @@ class SponsorsRouter extends JComponentRouterBase
 		{
 			if ($view !== null)
 			{
-				$segments[] = $query['id'];
+				$model      = SponsorsHelpersSponsors::getModel($view);
+				if($model !== null){
+					$item       = $model->getData($query['id']);
+					$alias      = $model->getAliasFieldNameByView($view);
+					$segments[] = (isset($alias)) ? $item->alias : $query['id'];
+				}
 			}
 			else
 			{
@@ -98,7 +103,15 @@ class SponsorsRouter extends JComponentRouterBase
 			}
 			else
 			{
-				$vars['task'] = $vars['view'] . '.' . $segment;
+				$id = $model->getItemIdByAlias(str_replace(':', '-', $segment));
+				if (!empty($id))
+				{
+					$vars['id'] = $id;
+				}
+				else
+				{
+					$vars['task'] = $vars['view'] . '.' . $segment;
+				}
 			}
 		}
 

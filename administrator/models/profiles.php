@@ -32,7 +32,6 @@ class SponsorsModelProfiles extends JModelList
 		{
 			$config['filter_fields'] = array(
 				'id', 'a.`id`',
-				'ordering', 'a.`ordering`',
 				'name', 'a.`name`',
 				'alias', 'a.`alias`',
 				'cif', 'a.`cif`',
@@ -41,7 +40,7 @@ class SponsorsModelProfiles extends JModelList
 				'url', 'a.`url`',
 				'zip', 'a.`zip`',
 				'city', 'a.`city`',
-				'cstate', 'a.`cstate`',
+				'region', 'a.`region`',
 				'country', 'a.`country`',
 				'email', 'a.`email`',
 				'phone', 'a.`phone`',
@@ -52,6 +51,7 @@ class SponsorsModelProfiles extends JModelList
 				'fido', 'a.`fido`',
 				'banner1', 'a.`banner1`',
 				'banner2', 'a.`banner2`',
+				'ordering', 'a.`ordering`',
 				'created_by', 'a.`created_by`',
 				'modified_by', 'a.`modified_by`',
 				'state', 'a.`state`',
@@ -188,18 +188,8 @@ class SponsorsModelProfiles extends JModelList
 
 
 		//Filtering vip
-		$filter_vip = $this->state->get("filter.vip");
-		if ($filter_vip)
-		{
-			$query->where("a.`vip` = '".$db->escape($filter_vip)."'");
-		}
 
 		//Filtering fido
-		$filter_fido = $this->state->get("filter.fido");
-		if ($filter_fido)
-		{
-			$query->where("a.`fido` = '".$db->escape($filter_fido)."'");
-		}
 		// Add the list ordering clause.
 		$orderCol  = $this->state->get('list.ordering');
 		$orderDirn = $this->state->get('list.direction');
@@ -221,10 +211,6 @@ class SponsorsModelProfiles extends JModelList
 	{
 		$items = parent::getItems();
 
-		foreach ($items as $oneItem) {
-					$oneItem->vip = JText::_('COM_SPONSORS_PROFILES_VIP_OPTION_' . strtoupper($oneItem->vip));
-					$oneItem->fido = JText::_('COM_SPONSORS_PROFILES_FIDO_OPTION_' . strtoupper($oneItem->fido));
-		}
 		return $items;
 	}
 }

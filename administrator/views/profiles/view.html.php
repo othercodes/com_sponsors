@@ -139,36 +139,6 @@ class SponsorsViewProfiles extends JViewLegacy
 		JHtmlSidebar::setAction('index.php?option=com_sponsors&view=profiles');
 
 		$this->extra_sidebar = '';
-		//Filter for the field vip
-		$select_label = JText::sprintf('COM_SPONSORS_FILTER_SELECT_LABEL', 'Vip');
-		$options = array();
-		$options[0] = new stdClass();
-		$options[0]->value = "0";
-		$options[0]->text = "No";
-		$options[1] = new stdClass();
-		$options[1]->value = "1";
-		$options[1]->text = "Yes";
-		JHtmlSidebar::addFilter(
-			$select_label,
-			'filter_vip',
-			JHtml::_('select.options', $options , "value", "text", $this->state->get('filter.vip'), true)
-		);
-
-		//Filter for the field fido
-		$select_label = JText::sprintf('COM_SPONSORS_FILTER_SELECT_LABEL', 'FIDO');
-		$options = array();
-		$options[0] = new stdClass();
-		$options[0]->value = "0";
-		$options[0]->text = "No";
-		$options[1] = new stdClass();
-		$options[1]->value = "1";
-		$options[1]->text = "Yes";
-		JHtmlSidebar::addFilter(
-			$select_label,
-			'filter_fido',
-			JHtml::_('select.options', $options , "value", "text", $this->state->get('filter.fido'), true)
-		);
-
 		JHtmlSidebar::addFilter(
 
 			JText::_('JOPTION_SELECT_PUBLISHED'),
@@ -189,12 +159,12 @@ class SponsorsViewProfiles extends JViewLegacy
 	{
 		return array(
 			'a.`id`' => JText::_('JGRID_HEADING_ID'),
-			'a.`ordering`' => JText::_('JGRID_HEADING_ORDERING'),
 			'a.`name`' => JText::_('COM_SPONSORS_PROFILES_NAME'),
 			'a.`cif`' => JText::_('COM_SPONSORS_PROFILES_CIF'),
 			'a.`email`' => JText::_('COM_SPONSORS_PROFILES_EMAIL'),
 			'a.`vip`' => JText::_('COM_SPONSORS_PROFILES_VIP'),
 			'a.`fido`' => JText::_('COM_SPONSORS_PROFILES_FIDO'),
+			'a.`ordering`' => JText::_('JGRID_HEADING_ORDERING'),
 			'a.`state`' => JText::_('JSTATUS'),
 		);
 	}

@@ -55,7 +55,6 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
 				<fieldset class="adminform">
 
 									<input type="hidden" name="jform[id]" value="<?php echo $this->item->id; ?>" />
-				<input type="hidden" name="jform[ordering]" value="<?php echo $this->item->ordering; ?>" />
 				<?php echo $this->form->renderField('name'); ?>
 				<?php echo $this->form->renderField('alias'); ?>
 				<?php echo $this->form->renderField('cif'); ?>
@@ -64,7 +63,7 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
 				<?php echo $this->form->renderField('url'); ?>
 				<?php echo $this->form->renderField('zip'); ?>
 				<?php echo $this->form->renderField('city'); ?>
-				<?php echo $this->form->renderField('cstate'); ?>
+				<?php echo $this->form->renderField('region'); ?>
 				<?php echo $this->form->renderField('country'); ?>
 				<?php echo $this->form->renderField('email'); ?>
 				<?php echo $this->form->renderField('phone'); ?>
@@ -75,11 +74,12 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
 				<?php echo $this->form->renderField('fido'); ?>
 				<?php echo $this->form->renderField('banner1'); ?>
 				<?php echo $this->form->renderField('banner2'); ?>
+				<input type="hidden" name="jform[ordering]" value="<?php echo $this->item->ordering; ?>" />
 				<input type="hidden" name="jform[checked_out]" value="<?php echo $this->item->checked_out; ?>" />
 				<input type="hidden" name="jform[checked_out_time]" value="<?php echo $this->item->checked_out_time; ?>" />
 
 				<?php echo $this->form->renderField('created_by'); ?>
-				<?php echo $this->form->renderField('modified_by'); ?>				<input type="hidden" name="jform[state]" value="<?php echo $this->item->state; ?>" />
+				<?php echo $this->form->renderField('modified_by'); ?>				<?php echo $this->form->renderField('state'); ?>
 
 
 					<?php if ($this->state->params->get('save_history', 1)) : ?>
@@ -93,7 +93,11 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
 		</div>
 		<?php echo JHtml::_('bootstrap.endTab'); ?>
 
-		
+		<?php if (JFactory::getUser()->authorise('core.admin','sponsors')) : ?>
+	<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'permissions', JText::_('JGLOBAL_ACTION_PERMISSIONS_LABEL', true)); ?>
+		<?php echo $this->form->getInput('rules'); ?>
+	<?php echo JHtml::_('bootstrap.endTab'); ?>
+<?php endif; ?>
 
 		<?php echo JHtml::_('bootstrap.endTabSet'); ?>
 

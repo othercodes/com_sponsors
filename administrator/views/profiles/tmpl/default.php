@@ -269,11 +269,9 @@ if (!empty($this->extra_sidebar))
 
 					<?php echo $item->email; ?>
 				</td>				<td>
-
-					<?php echo $item->vip; ?>
+					<?php echo JHtml::_('listhelper.toggle', $item->vip, 'profiles', 'vip', $i); ?>
 				</td>				<td>
-
-					<?php echo $item->fido; ?>
+					<?php echo JHtml::_('listhelper.toggle', $item->fido, 'profiles', 'fido', $i); ?>
 				</td>
 
 					</tr>

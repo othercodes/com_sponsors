@@ -5,7 +5,6 @@
     <field name="name" type="text" filter="raw" required="true" label="COM_SPONSORS_FORM_LBL_PROFILE_NAME" description="COM_SPONSORS_FORM_DESC_PROFILE_NAME" hint="COM_SPONSORS_FORM_LBL_PROFILE_NAME"/>
     <field name="alias" type="text" class="inputbox" generator="name" required="true" label="COM_SPONSORS_FORM_LBL_PROFILE_ALIAS" description="COM_SPONSORS_FORM_DESC_PROFILE_ALIAS" hint="COM_SPONSORS_FORM_LBL_PROFILE_ALIAS"/>
     <field name="cif" type="text" filter="alnum" required="true" label="COM_SPONSORS_FORM_LBL_PROFILE_CIF" description="COM_SPONSORS_FORM_DESC_PROFILE_CIF" hint="COM_SPONSORS_FORM_LBL_PROFILE_CIF"/>
-    <field name="titular" type="user" label="COM_SPONSORS_FORM_LBL_PROFILE_TITULAR" description="COM_SPONSORS_FORM_DESC_PROFILE_TITULAR" hint="COM_SPONSORS_FORM_LBL_PROFILE_TITULAR"/>
     <field name="address" type="textarea" filter="safehtml" label="COM_SPONSORS_FORM_LBL_PROFILE_ADDRESS" description="COM_SPONSORS_FORM_DESC_PROFILE_ADDRESS" hint="COM_SPONSORS_FORM_LBL_PROFILE_ADDRESS"/>
     <field name="url" type="url" validate="url" label="COM_SPONSORS_FORM_LBL_PROFILE_URL" description="COM_SPONSORS_FORM_DESC_PROFILE_URL" hint="COM_SPONSORS_FORM_LBL_PROFILE_URL"/>
     <field name="zip" type="text" filter="safehtml" label="COM_SPONSORS_FORM_LBL_PROFILE_ZIP" description="COM_SPONSORS_FORM_DESC_PROFILE_ZIP" hint="COM_SPONSORS_FORM_LBL_PROFILE_ZIP"/>
@@ -30,8 +29,6 @@
     <field name="ordering"/>
     <field name="checked_out" type="hidden" filter="unset"/>
     <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
-    <field name="created_by" type="createdby" default="0" label="COM_SPONSORS_FORM_LBL_PROFILE_CREATED_BY" description="COM_SPONSORS_FORM_DESC_PROFILE_CREATED_BY" hidden="true" hint="COM_SPONSORS_FORM_LBL_PROFILE_CREATED_BY"/>
-    <field name="modified_by" type="modifiedby" default="0" label="COM_SPONSORS_FORM_LBL_PROFILE_MODIFIED_BY" description="COM_SPONSORS_FORM_DESC_PROFILE_MODIFIED_BY" hidden="true" hint="COM_SPONSORS_FORM_LBL_PROFILE_MODIFIED_BY"/>
     <field name="state" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1" default="1">
       <option value="1">JPUBLISHED</option>
       <option value="0">JUNPUBLISHED</option>

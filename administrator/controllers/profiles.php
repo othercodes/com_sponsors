@@ -104,4 +104,38 @@ class SponsorsControllerProfiles extends JControllerAdmin
 		// Close the application
 		JFactory::getApplication()->close();
 	}
+
+	/**
+	 * Method to toggle fields on a list
+	 *
+	 * @throws Exception
+	 */
+	public function toggle()
+	{
+		// Initialise variables
+		$app    = JFactory::getApplication();
+		$ids    = $app->input->get('cid', array(), '', 'array');
+		$field  = $app->input->get('field');
+
+		if (empty($ids))
+		{
+			$app->enqueueMessage('warning', JText::_('JERROR_NO_ITEMS_SELECTED'));
+		}
+		else
+		{
+			// Get the model
+			$model = $this->getModel('profile');
+
+			foreach ($ids as $pk)
+			{
+				// Toggle the items
+				if (!$model->toggle($pk, $field))
+				{
+					throw new Exception(500, $model->getError());
+				}
+			}
+		}
+
+	$this->setRedirect(JRoute::_('index.php?option=' . $app->input->get('option') . '&view=' . $app->input->get('view'), false));
+	}
 }

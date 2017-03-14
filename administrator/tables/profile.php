@@ -67,6 +67,27 @@ class SponsorsTableprofile extends JTable
 	public function bind($array, $ignore = '')
 	{
 
+		// Support for alias field: alias
+		if (empty($array['alias']))
+		{
+			if (empty($array['name']))
+			{
+				$array['alias'] = JFilterOutput::stringURLSafe(date('Y-m-d H:i:s'));
+			}
+			else
+			{
+				if(JFactory::getConfig()->get('unicodeslugs') == 1)
+				{
+					$array['alias'] = JFilterOutput::stringURLUnicodeSlug(trim($array['name']));
+				}
+				else
+				{
+					$array['alias'] = JFilterOutput::stringURLSafe(trim($array['name']));
+				}
+			}
+		}
+
+
 		if ($array['id'] == 0 && empty($array['created_by']))
 		{
 			$array['created_by'] = JFactory::getUser()->id;
@@ -164,7 +185,7 @@ class SponsorsTableprofile extends JTable
 		// Check if alias is unique
 		if (!$this->isUnique('alias'))
 		{
-			throw new Exception('Your <b>alias</b> item "<b>' . $this->alias . '</b>" already exists');
+			$this->alias .= '-' . JFilterOutput::stringURLSafe(date('Y-m-d-H:i:s'));
 		}
 		// Check if cif is unique
 		if (!$this->isUnique('cif'))
