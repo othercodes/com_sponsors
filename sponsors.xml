@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_sponsors</name>
+    <creationDate>2017-03-14</creationDate>
+    <copyright>2017 OtherCode</copyright>
+    <license>Licencia Pública General GNU versión 2 o posterior. Consulte LICENSE.txt</license>
+    <author>Unay Santisteban</author>
+    <authorEmail>usantisteban@othercode.es</authorEmail>
+    <authorUrl>http://othercode.es/</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>Manage Sponsors easily.</description>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
+        </sql>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>sponsors.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+    </files>
+    <media destination="com_sponsors" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <languages folder="languages/site">
+        
+			<language tag="en-GB">en-GB/en-GB.com_sponsors.ini</language>
+			<language tag="es-ES">es-ES/es-ES.com_sponsors.ini</language>
+    </languages>
+    <administration>
+        <menu img="media/com_sponsors/images/s_com_sponsors.png" >COM_SPONSORS</menu>
+        <submenu>
+            
+			<menu link="option=com_sponsors&amp;view=profiles" view="profiles" img="media/com_sponsors/images/s_profiles.png" alt="Sponsors/Profiles">COM_SPONSORS_TITLE_PROFILES</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>sponsors.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+            
+			<language tag="en-GB">en-GB/en-GB.com_sponsors.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_sponsors.sys.ini</language>
+			<language tag="es-ES">es-ES/es-ES.com_sponsors.ini</language>
+			<language tag="es-ES">es-ES/es-ES.com_sponsors.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+        <plugin group="search" plugin="sponsors"/>
+    </plugins>
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->
