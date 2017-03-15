@@ -139,7 +139,7 @@ class SponsorsModelProfile extends JModelItem
         $table = $this->getTable();
         $properties = $table->getProperties();
 
-        if (!in_array('alias', $properties)) {
+        if (!array_key_exists('alias', $properties)) {
             return null;
         }
 
