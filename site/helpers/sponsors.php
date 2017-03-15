@@ -16,80 +16,72 @@ defined('_JEXEC') or die;
  */
 class SponsorsHelpersSponsors
 {
-	/**
-	 * Get an instance of the named model
-	 *
-	 * @param   string  $name  Model name
-	 *
-	 * @return null|object
-	 */
-	public static function getModel($name)
-	{
-		$model = null;
+    /**
+     * Get an instance of the named model
+     *
+     * @param   string $name Model name
+     *
+     * @return null|object
+     */
+    public static function getModel($name)
+    {
+        $model = null;
 
-		// If the file exists, let's
-		if (file_exists(JPATH_SITE . '/components/com_sponsors/models/' . strtolower($name) . '.php'))
-		{
-			require_once JPATH_SITE . '/components/com_sponsors/models/' . strtolower($name) . '.php';
-			$model = JModelLegacy::getInstance($name, 'SponsorsModel');
-		}
+        // If the file exists, let's
+        if (file_exists(JPATH_SITE . '/components/com_sponsors/models/' . strtolower($name) . '.php')) {
+            require_once JPATH_SITE . '/components/com_sponsors/models/' . strtolower($name) . '.php';
+            $model = JModelLegacy::getInstance($name, 'SponsorsModel');
+        }
 
-		return $model;
-	}
+        return $model;
+    }
 
-	/**
-	 * Gets the files attached to an item
-	 *
-	 * @param   int     $pk     The item's id
-	 *
-	 * @param   string  $table  The table's name
-	 *
-	 * @param   string  $field  The field's name
-	 *
-	 * @return  array  The files
-	 */
-	public static function getFiles($pk, $table, $field)
-	{
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
+    /**
+     * Gets the files attached to an item
+     *
+     * @param   int $pk The item's id
+     *
+     * @param   string $table The table's name
+     *
+     * @param   string $field The field's name
+     *
+     * @return  array  The files
+     */
+    public static function getFiles($pk, $table, $field)
+    {
+        $db = JFactory::getDbo();
+        $query = $db->getQuery(true);
 
-		$query
-			->select($field)
-			->from($table)
-			->where('id = ' . (int) $pk);
+        $query
+            ->select($field)
+            ->from($table)
+            ->where('id = ' . (int)$pk);
 
-		$db->setQuery($query);
+        $db->setQuery($query);
 
-		return explode(',', $db->loadResult());
-	}
+        return explode(',', $db->loadResult());
+    }
 
     /**
      * Gets the edit permission for an user
      *
-     * @param   mixed  $item  The item
+     * @param   mixed $item The item
      *
      * @return  bool
      */
     public static function canUserEdit($item)
     {
         $permission = false;
-        $user       = JFactory::getUser();
+        $user = JFactory::getUser();
 
-        if ($user->authorise('core.edit', 'com_sponsors'))
-        {
+        if ($user->authorise('core.edit', 'com_sponsors')) {
             $permission = true;
-        }
-        else
-        {
-            if (isset($item->created_by))
-            {
-                if ($user->authorise('core.edit.own', 'com_sponsors') && $item->created_by == $user->id)
-                {
+        } else {
+            if (isset($item->created_by)) {
+                if ($user->authorise('core.edit.own', 'com_sponsors') && $item->created_by == $user->id) {
                     $permission = true;
                 }
-            }
-            else
-            {
+            } else {
                 $permission = true;
             }
         }

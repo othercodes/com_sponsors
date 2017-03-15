@@ -19,14 +19,14 @@ jimport('joomla.application.component.controllerform');
  */
 class SponsorsControllerProfile extends JControllerForm
 {
-	/**
-	 * Constructor
-	 *
-	 * @throws Exception
-	 */
-	public function __construct()
-	{
-		$this->view_list = 'profiles';
-		parent::__construct();
-	}
+    /**
+     * Constructor
+     *
+     * @throws Exception
+     */
+    public function __construct()
+    {
+        $this->view_list = 'profiles';
+        parent::__construct();
+    }
 }
