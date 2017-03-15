@@ -1,12 +1,10 @@
-CREATE TABLE IF NOT EXISTS `#__sponsors_profile` (
+CREATE TABLE IF NOT EXISTS `dev_sponsors_profile` (
 `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-
 `asset_id` INT(10) UNSIGNED NOT NULL DEFAULT '0',
-
 `name` VARCHAR(255)  NOT NULL ,
 `alias` VARCHAR(255) COLLATE utf8_bin NOT NULL ,
 `cif` VARCHAR(255)  NOT NULL ,
-`titular` INT(11)  NOT NULL ,
+`titular` INT(11)  NOT NULL DEFAULT '0',
 `address` TEXT NOT NULL ,
 `url` VARCHAR(255)  NOT NULL ,
 `zip` VARCHAR(255)  NOT NULL ,
@@ -18,16 +16,16 @@ CREATE TABLE IF NOT EXISTS `#__sponsors_profile` (
 `facebook` VARCHAR(255)  NOT NULL ,
 `twitter` VARCHAR(255)  NOT NULL ,
 `youtube` VARCHAR(255)  NOT NULL ,
-`vip` TINYINT(1)  NOT NULL ,
-`fido` TINYINT(1)  NOT NULL ,
+`vip` TINYINT(1)  NOT NULL DEFAULT '0',
+`fido` TINYINT(1)  NOT NULL DEFAULT '0',
 `banner1` VARCHAR(255)  NOT NULL ,
 `banner2` VARCHAR(255)  NOT NULL ,
-`ordering` INT(11)  NOT NULL ,
-`checked_out` INT(11)  NOT NULL ,
-`checked_out_time` DATETIME NOT NULL ,
-`created_by` INT(11)  NOT NULL ,
-`modified_by` INT(11)  NOT NULL ,
-`state` TINYINT(1)  NOT NULL ,
+`ordering` INT(11)  NOT NULL DEFAULT '0',
+`checked_out` INT(11)  NOT NULL DEFAULT '0',
+`checked_out_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`created_by` INT(11)  NOT NULL DEFAULT '0',
+`modified_by` INT(11)  NOT NULL DEFAULT '0',
+`state` TINYINT(1)  NOT NULL DEFAULT '1',
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT COLLATE=utf8mb4_unicode_ci;
 
