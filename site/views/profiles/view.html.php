@@ -7,7 +7,7 @@
  * @copyright  2017 OtherCode
  * @license    Licencia Pública General GNU versión 2 o posterior. Consulte LICENSE.txt
  */
-// No direct access
+
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
@@ -29,12 +29,10 @@ class SponsorsViewProfiles extends JViewLegacy
 
     /**
      * Display the view
-     *
      * @param   string $tpl Template name
-     *
      * @return void
-     *
      * @throws Exception
+     * @since 1.0
      */
     public function display($tpl = null)
     {
@@ -58,10 +56,9 @@ class SponsorsViewProfiles extends JViewLegacy
 
     /**
      * Prepares the document
-     *
      * @return void
-     *
      * @throws Exception
+     * @since 1.0
      */
     protected function _prepareDocument()
     {
@@ -106,10 +103,9 @@ class SponsorsViewProfiles extends JViewLegacy
 
     /**
      * Check if state is set
-     *
      * @param   mixed $state State
-     *
      * @return bool
+     * @since 1.0
      */
     public function getState($state)
     {

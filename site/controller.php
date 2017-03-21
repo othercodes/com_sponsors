@@ -14,20 +14,16 @@ jimport('joomla.application.component.controller');
 
 /**
  * Class SponsorsController
- *
  * @since  1.6
  */
 class SponsorsController extends JControllerLegacy
 {
     /**
      * Method to display a view.
-     *
-     * @param   boolean $cachable If true, the view output will be cached
-     * @param   mixed $urlparams An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
-     *
-     * @return  JController   This object to support chaining.
-     *
-     * @since    1.5
+     * @param boolean $cachable If true, the view output will be cached
+     * @param mixed $urlparams An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+     * @return JControllerLegacy  This object to support chaining.
+     * @since 1.5
      */
     public function display($cachable = false, $urlparams = false)
     {
