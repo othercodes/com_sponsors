@@ -51,6 +51,7 @@ class SponsorsViewProfiles extends JViewLegacy
         }
 
         $this->_prepareDocument();
+
         parent::display($tpl);
     }
 
@@ -63,6 +64,10 @@ class SponsorsViewProfiles extends JViewLegacy
     protected function _prepareDocument()
     {
         $app = JFactory::getApplication();
+        $document = $app->getDocument();
+
+        $document->addStyleSheet(JUri::base() . 'media/com_sponsors/css/list.css');
+
         $menus = $app->getMenu();
         $title = null;
 

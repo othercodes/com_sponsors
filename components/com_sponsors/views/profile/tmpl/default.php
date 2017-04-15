@@ -20,25 +20,14 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_sponsors' 
 
         <table class="table">
 
-
             <tr>
                 <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_NAME'); ?></th>
-                <td><?php echo $this->item->name; ?></td>
-            </tr>
-
-            <tr>
-                <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_ALIAS'); ?></th>
-                <td><?php echo $this->item->alias; ?></td>
+                <td><?php echo utf8_decode($this->item->name); ?></td>
             </tr>
 
             <tr>
                 <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_CIF'); ?></th>
                 <td><?php echo $this->item->cif; ?></td>
-            </tr>
-
-            <tr>
-                <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_TITULAR'); ?></th>
-                <td><?php echo $this->item->titular_name; ?></td>
             </tr>
 
             <tr>
@@ -58,17 +47,17 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_sponsors' 
 
             <tr>
                 <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_CITY'); ?></th>
-                <td><?php echo $this->item->city; ?></td>
+                <td><?php echo utf8_decode($this->item->city); ?></td>
             </tr>
 
             <tr>
                 <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_REGION'); ?></th>
-                <td><?php echo $this->item->region; ?></td>
+                <td><?php echo utf8_decode($this->item->region); ?></td>
             </tr>
 
             <tr>
                 <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_COUNTRY'); ?></th>
-                <td><?php echo $this->item->country; ?></td>
+                <td><?php echo utf8_decode($this->item->country); ?></td>
             </tr>
 
             <tr>
@@ -97,28 +86,13 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_sponsors' 
             </tr>
 
             <tr>
-                <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_VIP'); ?></th>
-                <td></td>
-            </tr>
-
-            <tr>
-                <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_FIDO'); ?></th>
-                <td></td>
-            </tr>
-
-            <tr>
                 <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_BANNER1'); ?></th>
-                <td><?php echo $this->item->banner1; ?></td>
+                <td><img src="<?php echo $this->item->banner1; ?>" alt="banner"/></td>
             </tr>
 
             <tr>
                 <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_BANNER2'); ?></th>
-                <td><?php echo $this->item->banner2; ?></td>
-            </tr>
-
-            <tr>
-                <th><?php echo JText::_('COM_SPONSORS_FORM_LBL_PROFILE_STATE'); ?></th>
-                <td></td>
+                <td><img src="<?php echo $this->item->banner2; ?>" alt="banner"/></td>
             </tr>
 
         </table>

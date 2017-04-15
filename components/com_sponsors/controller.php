@@ -28,11 +28,24 @@ class SponsorsController extends JControllerLegacy
     public function display($cachable = false, $urlparams = false)
     {
         $app = JFactory::getApplication();
+
+        /**
+         * Retrieve the view param for the URL
+         *  - view=profiles () by default!
+         */
         $view = $app->input->getCmd('view', 'profiles');
+
+        /**
+         * Store the value of view param in the
+         * input (GET, POST, REQUEST) with view key
+         */
         $app->input->set('view', $view);
 
-        parent::display($cachable, $urlparams);
-
-        return $this;
+        /**
+         * Run the parent display method and return
+         * $this (chainable)
+         */
+        return parent::display($cachable, $urlparams);
     }
+
 }

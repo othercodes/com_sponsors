@@ -8,24 +8,23 @@
  */
 defined('_JEXEC') or die;
 
-/**
- * get this parameters from the configuration
- */
-$columns = 3;
 $counter = 1;
-
 ?>
 
 <div class="row-fluid">
     <?php foreach ($this->items as $i => $item) : ?>
-
-    <div class="span<?php echo round(12/$columns); ?>">
-        <a href="<?php echo JRoute::_('index.php?option=com_sponsors&view=profile&id=' . (int)$item->id); ?>">
-            <img src="<?php echo $item->banner1; ?>" alt="<?php echo $this->escape($item->name); ?>" />
-        </a>
+    <div class="span<?php echo round(12 / $this->params->get('columns')); ?>">
+        <div class="banner-patrocinador">
+            <?php if ($this->params->get('details') == 1): ?><a href="<?php echo JRoute::_('index.php?option=com_sponsors&view=profile&id=' . (int)$item->id); ?>"><?php endif ?>
+                <?php if ($this->params->get('banner') == 1): ?>
+                    <img src="<?php echo $item->banner1; ?>" alt="<?php echo $this->escape($item->name); ?>"/>
+                <?php else: ?>
+                    <img src="<?php echo $item->banner2; ?>" alt="<?php echo $this->escape($item->name); ?>"/>
+                <?php endif ?>
+                <?php if ($this->params->get('details') == 1): ?></a><?php endif ?>
+        </div>
     </div>
-
-    <?php if ($columns === $counter++) : ?>
+    <?php if ($this->params->get('columns') == $counter++) : ?>
     <?php $counter = 1; ?>
 </div>
 <div class="row-fluid">

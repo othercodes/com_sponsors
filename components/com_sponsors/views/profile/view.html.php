@@ -29,12 +29,10 @@ class SponsorsViewProfile extends JViewLegacy
 
     /**
      * Display the view
-     *
-     * @param   string $tpl Template name
-     *
+     * @param string $tpl Template name
      * @return void
-     *
-     * @throws Exception
+     * @throws \Exception
+     * @since 3.0
      */
     public function display($tpl = null)
     {
