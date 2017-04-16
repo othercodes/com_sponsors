@@ -10,9 +10,9 @@
             <option value="1">COM_SPONSORS_CONFIG_SMALL_BANNER</option>
             <option value="2">COM_SPONSORS_CONFIG_LARGE_BANNER</option>
         </field>
-        <field name="details" type="list" default="0" label="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_LABEL" description="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_DESC">
-            <option value="0">JNO</option>
+        <field name="details" type="radio" buttons="true" class="btn-group btn-group-yesno" default="0" label="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_LABEL" description="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_DESC">
             <option value="1">JYES</option>
+            <option value="0">JNO</option>
         </field>
     </fieldset>
 
@@ -22,8 +22,8 @@
 
     <fieldset name="component">
         <field name="save_history" type="radio" class="btn-group btn-group-yesno" default="0" label="JGLOBAL_SAVE_HISTORY_OPTIONS_LABEL" description="JGLOBAL_SAVE_HISTORY_OPTIONS_DESC">
-            <option value="0">JNO</option>
             <option value="1">JYES</option>
+            <option value="0">JNO</option>
         </field>
 
         <field name="history_limit" type="text" filter="integer" label="JGLOBAL_HISTORY_LIMIT_OPTIONS_LABEL" description="JGLOBAL_HISTORY_LIMIT_OPTIONS_DESC" default="5"/>

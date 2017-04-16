@@ -62,7 +62,6 @@ class SponsorsTableprofile extends JTable
      */
     public function bind($array, $ignore = '')
     {
-
         // Support for alias field: alias
         if (empty($array['alias'])) {
             if (empty($array['name'])) {
@@ -247,7 +246,8 @@ class SponsorsTableprofile extends JTable
      */
     protected function _getAssetName()
     {
-        return 'com_sponsors.profile.' . (int)$this->${$this->_tbl_key};
+        $k = $this->_tbl_key;
+        return 'com_sponsors.profile.' . (int)$this->$k;
     }
 
     /**

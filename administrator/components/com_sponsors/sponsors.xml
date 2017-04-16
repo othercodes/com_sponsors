@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
-    <name>com_sponsors</name>
+    <name>COM_SPONSORS</name>
     <creationDate>2017-03-14</creationDate>
     <copyright>2017 OtherCode</copyright>
     <license>Licencia Pública General GNU versión 2 o posterior. Consulte LICENSE.txt</license>
@@ -8,16 +8,16 @@
     <authorEmail>usantisteban@othercode.es</authorEmail>
     <authorUrl>http://othercode.es/</authorUrl>
     <version>1.0.0</version>
-    <description>Manage Sponsors easily.</description>
+    <description>COM_SPONSORS_XML_DESCRIPTION</description>
     <install>
         <sql>
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
         </sql>
     </install>
     <update>
-        <sql>
-            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
-        </sql>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
     </update>
     <uninstall>
         <sql>
@@ -44,6 +44,9 @@
     </languages>
     <administration>
         <menu img="class:address">COM_SPONSORS</menu>
+        <submenu>
+            <menu link="option=com_sponsors&amp;task=profile.add" img="class:address" alt="COM_SPONSORS_TITLE_PROFILES_ADD_NEW">COM_SPONSORS_TITLE_PROFILES_ADD_NEW</menu>
+        </submenu>
         <files folder="administrator">
             <filename>access.xml</filename>
             <filename>config.xml</filename>
@@ -51,7 +54,6 @@
             <filename>index.html</filename>
             <filename>sponsors.php</filename>
             <folder>controllers</folder>
-            <folder>assets</folder>
             <folder>helpers</folder>
             <folder>models</folder>
             <folder>sql</folder>

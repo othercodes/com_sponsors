@@ -39,13 +39,10 @@ class SponsorsModelProfile extends JModelAdmin
 
     /**
      * Returns a reference to the a Table object, always creating it.
-     *
      * @param   string $type The table type to instantiate
      * @param   string $prefix A prefix for the table class name. Optional.
      * @param   array $config Configuration array for model. Optional.
-     *
      * @return    JTable    A database object
-     *
      * @since    1.6
      */
     public function getTable($type = 'Profile', $prefix = 'SponsorsTable', $config = array())
@@ -55,12 +52,9 @@ class SponsorsModelProfile extends JModelAdmin
 
     /**
      * Method to get the record form.
-     *
      * @param   array $data An optional array of data for the form to interogate.
      * @param   boolean $loadData True if the form is to load its own data (default case), false if not.
-     *
      * @return  JForm  A JForm object on success, false on failure
-     *
      * @since    1.6
      */
     public function getForm($data = array(), $loadData = true)
@@ -85,14 +79,13 @@ class SponsorsModelProfile extends JModelAdmin
 
     /**
      * Method to get the data that should be injected in the form.
-     *
      * @return   mixed  The data for the form.
-     *
      * @since    1.6
      */
     protected function loadFormData()
     {
         // Check the session for previously entered form data.
+        $app = JFactory::getApplication();
         $data = JFactory::getApplication()->getUserState('com_sponsors.edit.profile.data', array());
 
         if (empty($data)) {
@@ -101,6 +94,8 @@ class SponsorsModelProfile extends JModelAdmin
             }
 
             $data = $this->item;
+            $data->set('language', $app->input->getString('language', (!empty($filters['language']) ? $filters['language'] : null)));
+            $data->set('access', $app->input->getInt('access', (!empty($filters['access']) ? $filters['access'] : JFactory::getConfig()->get('access'))));
         }
 
         return $data;
@@ -108,11 +103,8 @@ class SponsorsModelProfile extends JModelAdmin
 
     /**
      * Method to get a single record.
-     *
      * @param   integer $pk The id of the primary key.
-     *
      * @return  mixed    Object on success, false on failure.
-     *
      * @since    1.6
      */
     public function getItem($pk = null)
@@ -126,12 +118,10 @@ class SponsorsModelProfile extends JModelAdmin
 
     /**
      * Method to duplicate an Profile
-     *
      * @param   array &$pks An array of primary key IDs.
-     *
      * @return  boolean  True if successful.
-     *
-     * @throws  Exception
+     * @throws  Exception.
+     * @since    1.6
      */
     public function duplicate(&$pks)
     {
@@ -182,11 +172,8 @@ class SponsorsModelProfile extends JModelAdmin
 
     /**
      * Prepare and sanitise the table prior to saving.
-     *
      * @param   JTable $table Table Object
-     *
      * @return void
-     *
      * @since    1.6
      */
     protected function prepareTable($table)
@@ -206,12 +193,10 @@ class SponsorsModelProfile extends JModelAdmin
 
     /**
      * Save any changes on toggle button clicked on list view
-     *
      * @param   int $pk Primary key of the item
-     *
      * @param   string $field Name of the field to toggle
-     *
      * @return bool
+     * @since    1.6
      */
     public function toggle($pk, $field)
     {

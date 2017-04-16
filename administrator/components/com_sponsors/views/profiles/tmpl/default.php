@@ -176,9 +176,6 @@ if (!empty($this->extra_sidebar)) {
                     <?php endif; ?>
 
                     <th class='left'>
-                        <?php echo JHtml::_('grid.sort', 'COM_SPONSORS_PROFILES_ID', 'a.`id`', $listDirn, $listOrder); ?>
-                    </th>
-                    <th class='left'>
                         <?php echo JHtml::_('grid.sort', 'COM_SPONSORS_PROFILES_NAME', 'a.`name`', $listDirn, $listOrder); ?>
                     </th>
                     <th class='left'>
@@ -193,7 +190,9 @@ if (!empty($this->extra_sidebar)) {
                     <th class='left'>
                         <?php echo JHtml::_('grid.sort', 'COM_SPONSORS_PROFILES_FIDO', 'a.`fido`', $listDirn, $listOrder); ?>
                     </th>
-
+                    <th class='left'>
+                        <?php echo JHtml::_('grid.sort', 'COM_SPONSORS_PROFILES_ID', 'a.`id`', $listDirn, $listOrder); ?>
+                    </th>
 
                 </tr>
                 </thead>
@@ -247,10 +246,6 @@ if (!empty($this->extra_sidebar)) {
                         <?php endif; ?>
 
                         <td>
-
-                            <?php echo $item->id; ?>
-                        </td>
-                        <td>
                             <?php if (isset($item->checked_out) && $item->checked_out && ($canEdit || $canChange)) : ?>
                                 <?php echo JHtml::_('jgrid.checkedout', $i, $item->uEditor, $item->checked_out_time, 'profiles.', $canCheckin); ?>
                             <?php endif; ?>
@@ -275,6 +270,9 @@ if (!empty($this->extra_sidebar)) {
                         </td>
                         <td>
                             <?php echo JHtml::_('listhelper.toggle', $item->fido, 'profiles', 'fido', $i); ?>
+                        </td>
+                        <td>
+                            <?php echo $item->id; ?>
                         </td>
 
                     </tr>
