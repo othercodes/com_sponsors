@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
     <fieldset label="COM_SPONSORS" name="sponsors">
-        <field name="columns" type="list" default="2" label="Numero de columnas para mostrar los patrocinadores" description="">
-            <option value="1">1 Columna</option>
-            <option value="2">2 Columnas</option>
-            <option value="3">3 Columnas</option>
+        <field name="columns" type="list" default="2" label="COM_SPONSORS_CONFIG_DEFAULT_COLUMNS_LABEL" description="COM_SPONSORS_CONFIG_DEFAULT_COLUMNS_DESC">
+            <option value="1">COM_SPONSORS_CONFIG_DEFAULT_COLUMNS_X1</option>
+            <option value="2">COM_SPONSORS_CONFIG_DEFAULT_COLUMNS_X2</option>
+            <option value="3">COM_SPONSORS_CONFIG_DEFAULT_COLUMNS_X3</option>
         </field>
-        <field name="banner" type="list" default="2" label="Banner a mostrar" description="">
-            <option value="1">Banner 1 (Pequeno 150x80)</option>
-            <option value="2">Banner 2 (Grande 468x60)</option>
+        <field name="banner" type="list" default="2" label="COM_SPONSORS_CONFIG_SIZE_BANNER_LABEL" description="COM_SPONSORS_CONFIG_SIZE_BANNER_DESC">
+            <option value="1">COM_SPONSORS_CONFIG_SMALL_BANNER</option>
+            <option value="2">COM_SPONSORS_CONFIG_LARGE_BANNER</option>
         </field>
-        <field name="details" type="list" default="0" label="Activar ficha publica de patrocinador" description="">
-            <option value="0">No</option>
-            <option value="1">Si</option>
+        <field name="details" type="list" default="0" label="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_LABEL" description="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
         </field>
     </fieldset>
 

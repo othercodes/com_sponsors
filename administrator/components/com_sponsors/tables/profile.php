@@ -14,17 +14,26 @@ use Joomla\Utilities\ArrayHelper;
 
 /**
  * profile Table class
- *
  * @since  1.6
  */
 class SponsorsTableprofile extends JTable
 {
     /**
+     * Constructor
+     * @param   JDatabase &$db A database connector object
+     * @since 1.0
+     */
+    public function __construct(&$db)
+    {
+        JObserverMapper::addObserverClassToClass('JTableObserverContenthistory', 'SponsorsTableprofile', array('typeAlias' => 'com_sponsors.profile'));
+        parent::__construct('#__sponsors_profile', 'id', $db);
+    }
+
+    /**
      * Check if a field is unique
-     *
      * @param   string $field Name of the field
-     *
      * @return bool True if unique
+     * @since 1.0
      */
     private function isUnique($field)
     {
@@ -44,24 +53,10 @@ class SponsorsTableprofile extends JTable
     }
 
     /**
-     * Constructor
-     *
-     * @param   JDatabase &$db A database connector object
-     */
-    public function __construct(&$db)
-    {
-        JObserverMapper::addObserverClassToClass('JTableObserverContenthistory', 'SponsorsTableprofile', array('typeAlias' => 'com_sponsors.profile'));
-        parent::__construct('#__sponsors_profile', 'id', $db);
-    }
-
-    /**
      * Overloaded bind function to pre-process the params.
-     *
      * @param   array $array Named array
      * @param   mixed $ignore Optional array or list of parameters to ignore
-     *
      * @return  null|string  null is operation was satisfactory, otherwise returns an error
-     *
      * @see     JTable:bind
      * @since   1.5
      */
@@ -129,10 +124,9 @@ class SponsorsTableprofile extends JTable
 
     /**
      * This function convert an array of JAccessRule objects into an rules array.
-     *
      * @param   array $jaccessrules An array of JAccessRule objects.
-     *
      * @return  array
+     * @since 1.0
      */
     private function JAccessRulestoArray($jaccessrules)
     {
@@ -155,8 +149,9 @@ class SponsorsTableprofile extends JTable
 
     /**
      * Overloaded check function
-     *
      * @return bool
+     * @since 1.0
+     * @throws \Exception
      */
     public function check()
     {
@@ -182,16 +177,11 @@ class SponsorsTableprofile extends JTable
      * Method to set the publishing state for a row or list of rows in the database
      * table.  The method respects checked out rows by other users and will attempt
      * to checkin rows that it can after adjustments are made.
-     *
-     * @param   mixed $pks An optional array of primary key values to update.  If not
-     *                            set the instance property value is used.
+     * @param   mixed $pks An optional array of primary key values to update.  If not     set the instance property value is used.
      * @param   integer $state The publishing state. eg. [0 = unpublished, 1 = published]
      * @param   integer $userId The user id of the user performing the operation.
-     *
      * @return   boolean  True on success.
-     *
      * @since    1.0.4
-     *
      * @throws Exception
      */
     public function publish($pks = null, $state = 1, $userId = 0)
@@ -251,27 +241,22 @@ class SponsorsTableprofile extends JTable
 
     /**
      * Define a namespaced asset name for inclusion in the #__assets table
-     *
      * @return string The asset name
-     *
      * @see JTable::_getAssetName
+     * @since 1.0
      */
     protected function _getAssetName()
     {
-        $k = $this->_tbl_key;
-
-        return 'com_sponsors.profile.' . (int)$this->$k;
+        return 'com_sponsors.profile.' . (int)$this->${$this->_tbl_key};
     }
 
     /**
      * Returns the parent asset's id. If you have a tree structure, retrieve the parent's id using the external key field
-     *
      * @param   JTable $table Table name
      * @param   integer $id Id
-     *
      * @see JTable::_getAssetParentId
-     *
      * @return mixed The id on success, false on failure.
+     * @since 1.0
      */
     protected function _getAssetParentId(JTable $table = null, $id = null)
     {
@@ -294,10 +279,9 @@ class SponsorsTableprofile extends JTable
 
     /**
      * Delete a record by id
-     *
      * @param   mixed $pk Primary key value to delete. Optional
-     *
      * @return bool
+     * @since 1.0
      */
     public function delete($pk = null)
     {
