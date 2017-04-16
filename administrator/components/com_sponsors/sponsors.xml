@@ -9,17 +9,17 @@
     <authorUrl>http://othercode.es/</authorUrl>
     <version>1.0.0</version>
     <description>Manage Sponsors easily.</description>
-    <install> <!-- Runs on install -->
+    <install>
         <sql>
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
         </sql>
     </install>
-    <update> <!-- Runs on update -->
+    <update>
         <sql>
             <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
         </sql>
     </update>
-    <uninstall> <!-- Runs on uninstall -->
+    <uninstall>
         <sql>
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
@@ -34,7 +34,7 @@
         <folder>controllers</folder>
         <folder>helpers</folder>
     </files>
-    <media destination="com_sponsors" folder="media">
+    <media folder="media" destination="com_sponsors">
         <folder>js</folder>
         <folder>css</folder>
     </media>
@@ -43,10 +43,7 @@
         <language tag="es-ES">es-ES/es-ES.com_sponsors.ini</language>
     </languages>
     <administration>
-        <menu img="media/com_sponsors/images/s_com_sponsors.png">COM_SPONSORS</menu>
-        <submenu>
-            <menu link="option=com_sponsors&amp;view=profiles" view="profiles" img="media/com_sponsors/images/s_profiles.png" alt="Sponsors/Profiles">COM_SPONSORS_TITLE_PROFILES</menu>
-        </submenu>
+        <menu img="class:address">COM_SPONSORS</menu>
         <files folder="administrator">
             <filename>access.xml</filename>
             <filename>config.xml</filename>
