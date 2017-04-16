@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `dev_sponsors_profile` (
+CREATE TABLE IF NOT EXISTS `#__dev_sponsors_profile` (
   `id`               INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `asset_id`         INT(10) UNSIGNED NOT NULL DEFAULT '0',
   `name`             VARCHAR(255)     NOT NULL,
