@@ -23,8 +23,8 @@ class SponsorsControllerProfiles extends JControllerAdmin
 {
     /**
      * Method to clone existing Profiles
-     *
      * @return void
+     * @since 1.0
      */
     public function duplicate()
     {
@@ -52,27 +52,20 @@ class SponsorsControllerProfiles extends JControllerAdmin
 
     /**
      * Proxy for getModel.
-     *
      * @param   string $name Optional. Model name
      * @param   string $prefix Optional. Class prefix
      * @param   array $config Optional. Configuration array for model
-     *
      * @return  object    The Model
-     *
      * @since    1.6
      */
     public function getModel($name = 'profile', $prefix = 'SponsorsModel', $config = array())
     {
-        $model = parent::getModel($name, $prefix, array('ignore_request' => true));
-
-        return $model;
+        return parent::getModel($name, $prefix, array('ignore_request' => true));
     }
 
     /**
      * Method to save the submitted ordering values for records via AJAX.
-     *
      * @return  void
-     *
      * @since   3.0
      */
     public function saveOrderAjax()
@@ -102,8 +95,8 @@ class SponsorsControllerProfiles extends JControllerAdmin
 
     /**
      * Method to toggle fields on a list
-     *
      * @throws Exception
+     * @since 1.0
      */
     public function toggle()
     {

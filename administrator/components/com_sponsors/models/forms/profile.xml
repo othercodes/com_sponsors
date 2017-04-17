@@ -2,7 +2,7 @@
 <form>
     <fieldset>
         <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
-        <field name="name" type="text" filter="raw" required="true" class="input-xxlarge input-large-text" size="40" label="COM_SPONSORS_FORM_LBL_PROFILE_NAME" description="COM_SPONSORS_FORM_DESC_PROFILE_NAME" hint="COM_SPONSORS_FORM_LBL_PROFILE_NAME"/>
+        <field name="name" type="text" filter="raw" class="input-xxlarge input-large-text" size="40" label="COM_SPONSORS_FORM_LBL_PROFILE_NAME" description="COM_SPONSORS_FORM_DESC_PROFILE_NAME" hint="COM_SPONSORS_FORM_LBL_PROFILE_NAME"/>
         <field name="alias" type="text" class="inputbox" size="40" generator="name" required="true" label="COM_SPONSORS_FORM_LBL_PROFILE_ALIAS" description="COM_SPONSORS_FORM_DESC_PROFILE_ALIAS" hint="COM_SPONSORS_FORM_LBL_PROFILE_ALIAS"/>
         <field name="cif" type="text" filter="alnum" required="true" label="COM_SPONSORS_FORM_LBL_PROFILE_CIF" description="COM_SPONSORS_FORM_DESC_PROFILE_CIF" hint="COM_SPONSORS_FORM_LBL_PROFILE_CIF"/>
         <field name="titular" type="user" label="COM_SPONSORS_FORM_LBL_PROFILE_TITULAR" description="COM_SPONSORS_FORM_DESC_PROFILE_TITULAR" hint="COM_SPONSORS_FORM_LBL_PROFILE_TITULAR"/>

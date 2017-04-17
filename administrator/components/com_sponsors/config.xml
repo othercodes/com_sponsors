@@ -14,6 +14,7 @@
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
+        <field name="sponsor_usergroup" type="usergroup" label="COM_SPONSORS_CONFIG_SPONSOR_USER_GROUP_LABEL" description="COM_SPONSORS_CONFIG_SPONSOR_USER_GROUP_DESC"/>
     </fieldset>
 
     <fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">

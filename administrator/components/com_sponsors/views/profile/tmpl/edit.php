@@ -75,8 +75,21 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
                             <?php echo $this->form->renderField('youtube'); ?>
                             <?php echo $this->form->renderField('vip'); ?>
                             <?php echo $this->form->renderField('fido'); ?>
+
                             <?php echo $this->form->renderField('banner1'); ?>
+                            <?php if(!empty($this->form->getValue('banner1'))) :?>
+                            <div>
+                                <img src="<?php echo $this->form->getValue('banner1'); ?>" />
+                            </div>
+                            <?php endif; ?>
+
                             <?php echo $this->form->renderField('banner2'); ?>
+                            <?php if(!empty($this->form->getValue('banner2'))) :?>
+                                <div>
+                                    <img src="<?php echo $this->form->getValue('banner2'); ?>" />
+                                </div>
+                            <?php endif; ?>
+
                         </div>
                     </div>
 
@@ -91,12 +104,6 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
 
                     <?php echo JLayoutHelper::render('joomla.edit.global', $this); ?>
 
-                    <?php if ($this->state->params->get('save_history', 1)) : ?>
-                        <div class="control-group">
-                            <div class="control-label"><?php echo $this->form->getLabel('version_note'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('version_note'); ?></div>
-                        </div>
-                    <?php endif; ?>
                 </fieldset>
             </div>
         </div>

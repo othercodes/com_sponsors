@@ -27,12 +27,10 @@ class SponsorsViewProfile extends JViewLegacy
 
     /**
      * Display the view
-     *
      * @param   string $tpl Template name
-     *
      * @return void
-     *
      * @throws Exception
+     * @since 1.0
      */
     public function display($tpl = null)
     {
@@ -51,10 +49,9 @@ class SponsorsViewProfile extends JViewLegacy
 
     /**
      * Add the page title and toolbar.
-     *
      * @return void
-     *
      * @throws Exception
+     * @since 1.0
      */
     protected function addToolbar()
     {

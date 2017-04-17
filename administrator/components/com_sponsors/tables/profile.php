@@ -59,6 +59,7 @@ class SponsorsTableprofile extends JTable
      * @return  null|string  null is operation was satisfactory, otherwise returns an error
      * @see     JTable:bind
      * @since   1.5
+     * @throws \Exception
      */
     public function bind($array, $ignore = '')
     {
@@ -75,6 +76,34 @@ class SponsorsTableprofile extends JTable
             }
         }
 
+        $fieldsToLower = array('twitter', 'facebook', 'youtube', 'url', 'email', 'banner1', 'banner2');
+        foreach ($fieldsToLower as $field) {
+            if (isset($array[$field])) {
+                $array[$field] = strtolower($array[$field]);
+            }
+        }
+
+        if (isset($array['cif'])) {
+            $array['cif'] = strtoupper(str_replace(array(' ', '.', '-', '_', '/', '\\'), '', $array['cif']));
+        }
+
+        if (isset($array['phone'])) {
+            $array['phone'] = str_replace(array(' ', '.', '-', '_'), '', $array['phone']);
+        }
+
+        if (isset($array['titular']) && $array['titular'] != 0) {
+            $group = JComponentHelper::getParams('com_sponsors')->get('sponsor_usergroup');
+            $user = JUser::getInstance($array['titular']);
+
+            if (!in_array($group, $user->getAuthorisedGroups())) {
+                throw new Exception(JText::_('COM_SPONSORS_ERROR_USER_BAD_GROUP'));
+            }
+        }
+
+        if (isset($array['titular']) && $array['titular'] == 0) {
+            JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_SPONSORS_ERROR_NO_GROUP_DISABLING_SPONSOR', $array['name']), 'warning');
+            $array['state'] = '0';
+        }
 
         if ($array['id'] == 0 && empty($array['created_by'])) {
             $array['created_by'] = JFactory::getUser()->id;
@@ -83,8 +112,6 @@ class SponsorsTableprofile extends JTable
         if ($array['id'] == 0 && empty($array['modified_by'])) {
             $array['modified_by'] = JFactory::getUser()->id;
         }
-        $input = JFactory::getApplication()->input;
-        $task = $input->getString('task', '');
 
         if (isset($array['params']) && is_array($array['params'])) {
             $registry = new JRegistry;
