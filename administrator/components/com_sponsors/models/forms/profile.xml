@@ -25,8 +25,9 @@
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
-        <field name="banner1" type="media" directory="sponsors" preview="true" label="COM_SPONSORS_FORM_LBL_PROFILE_BANNER1" description="COM_SPONSORS_FORM_DESC_PROFILE_BANNER1" hint="COM_SPONSORS_FORM_LBL_PROFILE_BANNER1"/>
-        <field name="banner2" type="media" directory="sponsors" preview="true" label="COM_SPONSORS_FORM_LBL_PROFILE_BANNER2" description="COM_SPONSORS_FORM_DESC_PROFILE_BANNER2" hint="COM_SPONSORS_FORM_LBL_PROFILE_BANNER2"/>
+        <field name="banner1" type="media" directory="sponsors" label="COM_SPONSORS_FORM_LBL_PROFILE_BANNER1" description="COM_SPONSORS_FORM_DESC_PROFILE_BANNER1" hint="COM_SPONSORS_FORM_LBL_PROFILE_BANNER1"/>
+        <field name="banner2" type="media" directory="sponsors" label="COM_SPONSORS_FORM_LBL_PROFILE_BANNER2" description="COM_SPONSORS_FORM_DESC_PROFILE_BANNER2" hint="COM_SPONSORS_FORM_LBL_PROFILE_BANNER2"/>
+        <field name="banner3" type="media" directory="sponsors" label="COM_SPONSORS_FORM_LBL_PROFILE_BANNER3" description="COM_SPONSORS_FORM_DESC_PROFILE_BANNER3" hint="COM_SPONSORS_FORM_LBL_PROFILE_BANNER3"/>
         <field name="state" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1" default="1">
             <option value="1">JPUBLISHED</option>
             <option value="0">JUNPUBLISHED</option>

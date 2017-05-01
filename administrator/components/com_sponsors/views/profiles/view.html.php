@@ -89,6 +89,7 @@ class SponsorsViewProfiles extends JViewLegacy
                 JToolBarHelper::divider();
                 JToolBarHelper::custom('profiles.publish', 'publish.png', 'publish_f2.png', 'JTOOLBAR_PUBLISH', true);
                 JToolBarHelper::custom('profiles.unpublish', 'unpublish.png', 'unpublish_f2.png', 'JTOOLBAR_UNPUBLISH', true);
+                JToolBarHelper::custom('discover', 'publish.png', 'publish_f2.png', 'COM_SPONSOR_BTN_DISCOVER', false);
             } elseif (isset($this->items[0])) {
                 // If this component does not use state then show a direct delete button as we can not trash
                 JToolBarHelper::deleteList('', 'profiles.delete', 'JTOOLBAR_DELETE');

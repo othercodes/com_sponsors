@@ -67,26 +67,33 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
                             <?php echo $this->form->renderField('city'); ?>
                             <?php echo $this->form->renderField('region'); ?>
                             <?php echo $this->form->renderField('country'); ?>
-                        </div>
-
-                        <div class="span6">
                             <?php echo $this->form->renderField('facebook'); ?>
                             <?php echo $this->form->renderField('twitter'); ?>
                             <?php echo $this->form->renderField('youtube'); ?>
+                        </div>
+
+                        <div class="span6">
                             <?php echo $this->form->renderField('vip'); ?>
                             <?php echo $this->form->renderField('fido'); ?>
 
+                            <?php echo $this->form->renderField('banner2'); ?>
+                            <?php if(!empty($this->form->getValue('banner2'))) :?>
+                                <div class="control-group">
+                                    <img src="<?php echo JURI::root().$this->form->getValue('banner2'); ?>" />
+                                </div>
+                            <?php endif; ?>
+
                             <?php echo $this->form->renderField('banner1'); ?>
                             <?php if(!empty($this->form->getValue('banner1'))) :?>
-                            <div>
-                                <img src="<?php echo $this->form->getValue('banner1'); ?>" />
+                            <div class="control-group">
+                                <img src="<?php echo JURI::root().$this->form->getValue('banner1'); ?>" />
                             </div>
                             <?php endif; ?>
 
-                            <?php echo $this->form->renderField('banner2'); ?>
-                            <?php if(!empty($this->form->getValue('banner2'))) :?>
-                                <div>
-                                    <img src="<?php echo $this->form->getValue('banner2'); ?>" />
+                            <?php echo $this->form->renderField('banner3'); ?>
+                            <?php if(!empty($this->form->getValue('banner3'))) :?>
+                                <div class="control-group">
+                                    <img src="<?php echo JURI::root().$this->form->getValue('banner3'); ?>" />
                                 </div>
                             <?php endif; ?>
 
