@@ -67,12 +67,12 @@ $document->addStyleSheet(JUri::root() . 'media/com_sponsors/css/form.css');
                             <?php echo $this->form->renderField('city'); ?>
                             <?php echo $this->form->renderField('region'); ?>
                             <?php echo $this->form->renderField('country'); ?>
-                            <?php echo $this->form->renderField('facebook'); ?>
-                            <?php echo $this->form->renderField('twitter'); ?>
-                            <?php echo $this->form->renderField('youtube'); ?>
                         </div>
 
                         <div class="span6">
+                            <?php echo $this->form->renderField('facebook'); ?>
+                            <?php echo $this->form->renderField('twitter'); ?>
+                            <?php echo $this->form->renderField('youtube'); ?>
                             <?php echo $this->form->renderField('vip'); ?>
                             <?php echo $this->form->renderField('fido'); ?>
 
