@@ -22,7 +22,7 @@ $counter = 1;
                     <img src="<?php echo $item->banner2; ?>" alt="<?php echo $this->escape($item->name); ?>" style="max-width:150px;"/>
                 <?php else:?>
                     <img src="<?php echo $item->banner3; ?>" alt="<?php echo $this->escape($item->name); ?>" style="max-width:1140px;"/>
-                <?php endif ?>
+                <?php endif; ?>
             <?php if ($this->params->get('details') == 1): ?></a><?php endif ?>
         </div>
     </div>

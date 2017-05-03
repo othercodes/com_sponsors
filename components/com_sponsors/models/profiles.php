@@ -145,9 +145,7 @@ class SponsorsModelProfiles extends JModelList
         // Join over the created by field 'modified_by'
         $query->join('LEFT', '#__users AS modified_by ON modified_by.id = a.modified_by');
 
-        if (!JFactory::getUser()->authorise('core.edit', 'com_sponsors')) {
-            $query->where('a.state = 1');
-        }
+        $query->where('a.state = 1');
 
         // Filter by search in title
         $search = $this->getState('filter.search');
