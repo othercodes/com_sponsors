@@ -7,8 +7,8 @@
             <option value="3">COM_SPONSORS_CONFIG_DEFAULT_COLUMNS_X3</option>
         </field>
         <field name="banner" type="list" default="2" label="COM_SPONSORS_CONFIG_SIZE_BANNER_LABEL" description="COM_SPONSORS_CONFIG_SIZE_BANNER_DESC">
-            <option value="1">COM_SPONSORS_CONFIG_SMALL_BANNER</option>
-            <option value="2">COM_SPONSORS_CONFIG_LARGE_BANNER</option>
+            <option value="1">COM_SPONSORS_CONFIG_LARGE_BANNER</option>
+            <option value="2">COM_SPONSORS_CONFIG_SMALL_BANNER</option>
             <option value="3">COM_SPONSORS_CONFIG_XLARGE_BANNER</option>
         </field>
         <field name="details" type="radio" buttons="true" class="btn-group btn-group-yesno" default="0" label="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_LABEL" description="COM_SPONSORS_CONFIG_PUBLIC_SPONSOR_PROFILE_DESC">
