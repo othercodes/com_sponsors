@@ -9,13 +9,16 @@
 defined('_JEXEC') or die;
 
 $counter = 1;
+if($this->params->get('random', 0) == 1) {
+    shuffle($this->items);
+}
 ?>
 
 <div class="row-fluid">
     <?php foreach ($this->items as $i => $item) : ?>
     <div class="span<?php echo round(12 / $this->params->get('columns')); ?>">
         <div class="banner-patrocinador">
-            <?php if ($this->params->get('details') == 1): ?><a href="<?php echo JRoute::_('index.php?option=com_sponsors&view=profile&id=' . (int)$item->id); ?>"><?php endif ?>
+            <?php if ($this->params->get('details') == 1 && $item->vip == 1): ?><a href="<?php echo JRoute::_('index.php?option=com_sponsors&view=profile&id=' . (int)$item->id); ?>"><?php endif ?>
                 <?php if ($this->params->get('banner') == 1): ?>
                     <img src="<?php echo $item->banner1; ?>" alt="<?php echo $this->escape($item->name); ?>" style="max-width:468px;"/>
                 <?php elseif($this->params->get('banner') == 2): ?>
@@ -23,7 +26,7 @@ $counter = 1;
                 <?php else:?>
                     <img src="<?php echo $item->banner3; ?>" alt="<?php echo $this->escape($item->name); ?>" style="max-width:1140px;"/>
                 <?php endif; ?>
-            <?php if ($this->params->get('details') == 1): ?></a><?php endif ?>
+            <?php if ($this->params->get('details') == 1 && $item->vip == 1): ?></a><?php endif ?>
         </div>
     </div>
     <?php if ($this->params->get('columns') == $counter++) : ?>

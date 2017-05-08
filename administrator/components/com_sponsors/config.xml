@@ -15,6 +15,10 @@
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
+        <field name="random" type="radio" buttons="true" class="btn-group btn-group-yesno" default="0" label="COM_SPONSORS_CONFIG_RANDOM_LABEL" description="COM_SPONSORS_CONFIG_RANDOM_DESC">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
         <field name="banners_path" type="folderlist" default="patrocinadores" directory="images" label="COM_SPONSORS_CONFIG_SPONSOR_FOLDER_LABEL" description="COM_SPONSORS_CONFIG_SPONSOR_FOLDER_DESC"/>
         <field name="sponsor_usergroup" type="usergroup" label="COM_SPONSORS_CONFIG_SPONSOR_USER_GROUP_LABEL" description="COM_SPONSORS_CONFIG_SPONSOR_USER_GROUP_DESC"/>
     </fieldset>
