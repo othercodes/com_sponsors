@@ -1,6 +1,5 @@
 /.idea/
-/builder/tmp
-/builder/*.zip
+/_builds/*
 /.htaccess
 /administrator/cache/*
 /administrator/components/com_admin/*

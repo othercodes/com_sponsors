@@ -47,7 +47,7 @@ class SponsorsRouter extends JComponentRouterBase
         }
 
         if (isset($query['id'])) {
-            if ($view !== null) {
+            if ($view !== null && method_exists('SponsorsHelpersSponsors','getModel')) {
                 $model = SponsorsHelpersSponsors::getModel($view);
                 if ($model !== null) {
                     $item = $model->getData($query['id']);

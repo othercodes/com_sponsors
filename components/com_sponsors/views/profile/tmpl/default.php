@@ -22,6 +22,9 @@ foreach ($address as $key => $element) {
     }
 }
 
+if (!class_exists('ContentHelperRoute')) require_once(JPATH_SITE . '/components/com_content/helpers/route.php');
+
+
 ?>
 <?php if (isset($this->item->banner3)): ?>
     <div class="row-fluid">
@@ -82,10 +85,28 @@ foreach ($address as $key => $element) {
 
         <div class="span6">
 
+            <?php $leadingcount = 0; ?>
+            <?php if (!empty($this->item->articles)) : ?>
+                <h1>Noticias del Patrocinador</h1>
+                <div>
+                    <?php foreach ($this->item->articles as $item) : ?>
+                        <div>
+                            <h4>
+                                <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->id, $item->catid, $item->language)); ?>" itemprop="url">
+                                    <?php echo $this->escape($item->title); ?>
+                                </a>
+                            </h4>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
         </div>
 
     </div>
 
 <?php if ($canEdit && $this->item->checked_out == 0): ?>
-    <a class="btn" href="<?php echo JRoute::_('index.php?option=com_sponsors&task=profile.edit&id=' . $this->item->id); ?>"><?php echo JText::_("COM_SPONSORS_EDIT_ITEM"); ?></a>
+    <a class="btn" href="<?php echo JRoute::_('index.php?option=com_sponsors&task=profile.edit&id=' . $this->item->id); ?>">
+        <?php echo JText::_("COM_SPONSORS_EDIT_ITEM"); ?>
+    </a>
 <?php endif; ?>

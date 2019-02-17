@@ -260,4 +260,31 @@ class SponsorsModelProfile extends JModelItem
                 break;
         }
     }
+
+    /**
+     * Return the sponsor articles
+     * @return array
+     * @since 1.0
+     */
+    public function getArticles($sponsor)
+    {
+
+        $db = $this->getDbo();
+        $query = $db->getQuery(true);
+
+        // Select the required fields from the table.
+        $query->select('*');
+        $query->from('#__content AS a');
+        $query->where('created_by = ' . $sponsor->titular);
+
+        $query->where('state = 1');
+        //$query->order('created');
+
+        $db->setQuery($query);
+        $result = $db->loadObjectList();
+
+        return $result;
+
+    }
+
 }

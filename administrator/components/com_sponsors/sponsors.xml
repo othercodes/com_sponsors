@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="3.0" method="upgrade">
+<extension type="component" version="3.9" method="upgrade">
     <name>COM_SPONSORS</name>
     <creationDate>2017-03-14</creationDate>
-    <copyright>2017 OtherCode</copyright>
-    <license>Licencia Pública General GNU versión 2 o posterior. Consulte LICENSE.txt</license>
+    <copyright>2019 (c) otherCode</copyright>
+    <license>MIT</license>
     <author>Unay Santisteban</author>
     <authorEmail>usantisteban@othercode.es</authorEmail>
     <authorUrl>http://othercode.es/</authorUrl>
-    <version>1.0.0</version>
+    <version>VERSION</version>
     <description>COM_SPONSORS_XML_DESCRIPTION</description>
     <install>
         <sql>
@@ -77,4 +77,9 @@
     <plugins>
         <plugin group="search" plugin="sponsors"/>
     </plugins>
+    <updateservers>
+        <server name="OtherCode Extension Directory" priority="1" type="collection">
+            https://updates.othercode.es/index.xml
+        </server>
+    </updateservers>
 </extension>

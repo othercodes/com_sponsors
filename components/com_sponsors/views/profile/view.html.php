@@ -43,6 +43,9 @@ class SponsorsViewProfile extends JViewLegacy
         $this->item = $this->get('Data');
         $this->params = $app->getParams('com_sponsors');
 
+        $model = $this->getModel();
+        $this->item->articles = $model->getArticles($this->item);
+
         if (!empty($this->item)) {
             $this->form = $this->get('Form');
         }
